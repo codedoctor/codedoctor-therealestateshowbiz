@@ -332,10 +332,97 @@ function theme_listing_sold_shortcode( $params, $content = null) {
 }
 
 
+/* **********************************************************
+ * LISTING SOLD Shortcode
+ * **********************************************************/
+function theme_listing_townbox_shortcode( $params, $content = null) {
+
+  
+  $result = "
+<div class=\"listings-comment-header\">
+
+
+<ul class=\"list-column-a\">
+  <li><a href=\"/listings/#none\">Ardsley</a></li>
+  <li><a href=\"/listings/#none\">Armonk</a></li>
+  <li><a href=\"/listings/#none\">Bedford</a></li>
+  <li><a href=\"/listings/#none\">Briarcliff Manor</a></li>
+  <li><a href=\"/listings/#none\">Bronxville</a></li>
+
+ <li><strong><a href=\"/listings/#chappaqua\">Chappaqua</a></strong></li>
+
+  <li><strong><a href=\"/listings/#cold-spring\">Cold Spring</a></strong></li>
+</ul>
+<ul class=\"list-column-b\">
+  <li><a href=\"/listings/#none\">Cortlandt Manor</a></li>
+  <li><strong><a href=\"/listings/#croton-on-hudson\">Croton-on-Hudson</a></strong></li>
+  <li><a href=\"/listings/#none\">Dobbs Ferry</a></li>
+
+ <li><strong><a href=\"/listings/#garrison\">Garrison</a></strong></li>
+
+ 
+
+
+  <li><a href=\"/listings/#none\">Hastings-on-Hudson</a></li>
+  <li><a href=\"/listings/#none\">Irvington</a></li>
+</ul>
+<ul class=\"list-column-c\">
+  <li><a href=\"/listings/#none\">Katonah</a></li>
+  <li><a href=\"/listings/#none\">Larchmont</a></li>
+  <li><a href=\"/listings/#none\">Mamaronek</a></li>
+  <li><strong><a href=\"/listings/#mt-kisco\">Mt. Kisco</a></strong></li>
+  <li><a href=\"/listings/#none\">New Rochelle</a></li>
+  <li><a href=\"/listings/#none\">North Salem</a></li>
+ </ul>
+<ul class=\"list-column-d\">
+  <li><strong><a href=\"/listings/#ossining\">Ossining</a></strong></li>
+  <li><a href=\"/listings/#none\">Peekskill</a></li>
+  <li><a href=\"/listings/#none\">Pelham</a></li>
+  <li><strong><a href=\"/listings/#pleasantville\">Pleasantville</a></strong></li>
+  <li><a href=\"/listings/#none\">Pocantico Hills</a></li>
+  <li><a href=\"/listings/#none\">Port Chester</a></li>
+ </ul>
+<ul class=\"list-column-e\">
+ <li><a href=\"/listings/#none\">Pound Ridge</a></li>
+  <li><a href=\"/listings/#none\">Rye</a></li>
+  <li><a href=\"/listings/#none\">Rye Brook</a></li>
+  <li><a href=\"/listings/#none\">Rye Neck</a></li>
+  <li><a href=\"/listings/#none\">Scarsdale</a></li>
+  <li><a href=\"/listings/#none\">Sleepy Hollow</a></li>
+  <li><strong><a href=\"/listings/#south salem\">South Salem</a></strong></li>
+</ul>
+
+<ul class=\"list-column-f\">
+
+
+  <li><a href=\"/listings/#none\">Somers</a></li>
+  <li><a href=\"/listings/#none\">Tarrytown</a></li>
+  <li><a href=\"/listings/#none\">Yorktown</a></li>
+</Br>
+  <li class=\"jean\">Jean was a real estate 
+columnist for the Patent 
+Trader and Provided
+Real Estate Tips on radio
+station WLNA 1420AM
+</li>
+</ul>
+
+<div class=\"clearfix clear\"></div>
+  </div>
+
+  ";
+
+  return $result;
+
+}
+
+
 add_action('init', 'register_shortcodes');
 function register_shortcodes() {
   add_shortcode( 'listing', 'theme_listing_shortcode' );
   add_shortcode( 'listing_sold', 'theme_listing_sold_shortcode' );
+
+  add_shortcode('listing_townbox','theme_listing_townbox_shortcode');
 }
 
 add_action('widgets_init', 'register_states_widget');
