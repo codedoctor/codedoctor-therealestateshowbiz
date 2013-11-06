@@ -416,6 +416,42 @@ station WLNA 1420AM
 
 }
 
+function theme_listing_active_shortcode( $params, $content = null) {
+
+  
+  $result = "
+<h3 style=\"margin-top:60px\">More Listings</h3>
+[one_fourth]
+[listing title=\"Hudson River Views -Garrison- $699,000 PENDING\" beds=\"3 Bdrms 2 Full Bth \" sqft=\"1,175 Sq Ft\" link=\"/listings/hudson-river-views//\" image=\"/wp-content/uploads/2013/07/559rt9d-thumb.jpg\"]
+[/one_fourth]
+[one_fourth]
+[listing title=\"Hudson River Views and Dream Lifestyle - Croton on Hudson- $1,299,000\" beds=\"4 Bdrms 4 Full Bth 1 Partial \" sqft=\"4,462 Sq Ft\" link=\"/listings//hudson-river-views-dream-lifestyle/\" image=\"/wp-content/uploads/2013/07/1212albanypost-thumb.jpg\"]
+[/one_fourth]
+[one_fourth]
+[listing title=\"The Columns - Chappaqua -$2,795,000\" beds=\"9 Bdrms 6 Full Bth 2 Partial\" sqft=\"7,223 Sq Ft\" link=\"/listings/The-Columns/\" image=\"/wp-content/uploads/2013/06/780King-springThumb.jpg\"]
+[/one_fourth]
+[one_fourth_last]
+[listing title=\"Open Floor Plan - Croton on Hudson -$649,000 \" beds=\"4 Bdrms 3 Full Bth\" sqft=\"2,233 Sq Ft\" link=\"/listings/open-floor-plan/\" image=\"/wp-content/uploads/2013/04/123NOldPost-Croton-thumb1.jpg\"]
+[/one_fourth_last]
+
+[one_fourth]
+[listing title=\"Deal of the Century -Ossining - $489,000 PENDING\" beds=\"3 Bdrms 2 Full Bth\" sqft=\" 2,658 Sq Ft\" link=\"/listings/deal-of-the-century/\" image=\"/wp-content/uploads/2013/06/459Illingtonthumb.jpg\"]
+[/one_fourth]
+
+[one_fourth]
+[listing title=\"Artfully expanded- $565,000 Ossining\" beds=\"3 Bdrms 3 Bth\" sqft=\"2,645 Sq Ft\" link=\"/listings/charming-farmhouse-has-been-artfully-expanded-over-the-years\" image=\"/wp-content/jean-custom/properties/Ossining-beautiful-houses-farmhouse-th.jpg\"]
+[/one_fourth]
+
+[one_fourth_last]
+[listing title=\"On the Pond - Ossining - $685,000\" beds=\"3 Bdrms 2 Full Bth 1 partial\" sqft=\" 2,233 Sq Ft\" link=\"/listings/on-the-pond/\" image=\"/wp-content/uploads/2013/06/1364SpringValleythumb.jpg\"]
+[/one_fourth_last]
+
+  ";
+
+  return do_shortcode($result);
+
+}
+
 
 add_action('init', 'register_shortcodes');
 function register_shortcodes() {
@@ -423,6 +459,7 @@ function register_shortcodes() {
   add_shortcode( 'listing_sold', 'theme_listing_sold_shortcode' );
 
   add_shortcode('listing_townbox','theme_listing_townbox_shortcode');
+  add_shortcode( 'listing_active', 'theme_listing_active_shortcode' );
 }
 
 add_action('widgets_init', 'register_states_widget');
