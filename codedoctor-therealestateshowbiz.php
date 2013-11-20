@@ -25,7 +25,52 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+/* **********************************************************
+ * RESOURCE Shortcode
+ * **********************************************************/
+function theme_resource_shortcode( $params, $content = null) {
+  extract( shortcode_atts( array(
+    'title' => '',
+    'description' => '',
+    'phone' => '',
+    'phone2' => '',
+    'email' => '',
+    'homepage' => '',
+    'subtitle' => '',
+    'address' => '',
+    ), $params ) );
+  
+  $result = '';
+  $result .= '<h4 class="resource">'.$title.'</h4>';
+  $result .= '<ul class="resource">';
 
+
+  if(strlen($subtitle) > 0) {
+    $result .= '<li>'.$subtitle.'</li>';
+  }
+  if(strlen($address) > 0) {
+    $result .= '<li>'.$address.'</li>';
+  }
+  if(strlen($phone) > 0) {
+    $result .= '<li>'.$phone.'</li>';
+  }
+  if(strlen($phone2) > 0) {
+    $result .= '<li>'.$phone2.'</li>';
+  }
+  if(strlen($email) > 0) {
+    $result .= '<li><a href="mailto:'.$email.'">'.$email.'</a></li>';
+  }
+  if(strlen($homepage) > 0) {
+    $result .= '<li><a href="http://'.$homepage.'">'.$homepage.'</a></li>';
+  }
+  if(strlen($description) > 0) {
+    $result .= '<li>'.$description.'</li>';
+  }
+  
+  $result .= '</ul>';
+  return $result;
+
+}
 
 // WIDGETS
 
@@ -460,6 +505,8 @@ function register_shortcodes() {
 
   add_shortcode('listing_townbox','theme_listing_townbox_shortcode');
   add_shortcode( 'listing_active', 'theme_listing_active_shortcode' );
+  add_shortcode( 'resource', 'theme_resource_shortcode' );
+
 }
 
 add_action('widgets_init', 'register_states_widget');
